@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Harvest Bridge - Farmer's first choice" />
+    <meta name="author" content="@krishisadhan" />
+    <meta itemprop="name" content="Harvest Bridge" />
+    <meta itemprop="description" content="Harvest Bridge - Farmer's first choice" />
+    <meta name="twitter:card" content="Summary" />
+    <meta name="twitter:site" content="@krishisadhan" />
+    <meta name="twitter:title" content="krishisadhan" />
+    <meta name="twitter:description" content="Harvest Bridge - Farmer's first choice" />
+    <meta name="twitter:creator" content="@krishisadhan" />
+    <meta property="og:title" content="krishisadhan" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://krishisadhan.netlify.app/" />
+    <meta property="og:description" content="Harvest Bridge - Farmer's first choice" />
+    <meta property="og:site_name" content="Harvest Bridge" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src='https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate'></script>
+    <link rel="apple-touch-icon" href="./logo.png" />
+    <link rel="manifest" href="./manifest.json">
+    <style>
+      body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+    </style>
+    <title>Harvest Bridge - Farmer's first choice</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- <div id="google_translate_element"></div> -->
+    
+    <div id="root"></div>
+    
+
+    <button class="open-button" onclick="openForm()">AgroBot</button>
+
+    <div class="chat-popup" id="myForm">
+      <form action="#" class="form-container">
+        <h1>Chat</h1>
+
+        <label for="msg"><b>Message</b></label>
+        <!-- <textarea placeholder="Type message.." name="msg" required></textarea> -->
+        <!-- <iframe
+          src="https://webchat.botframework.com/embed/AgreeLan-bot?s=Lhap8QYRlSs.VuQ49aRE5B8446zlp6j601VwnncGYBigPqLZqhOUyu4"
+          style="min-width: 288px; width: 100%; min-height: 450px"
+        ></iframe> -->
+          <iframe
+          src="https://webchat.botframework.com/embed/AgreeLan-bot?s=Lhap8QYRlSs.VuQ49aRE5B8446zlp6j601VwnncGYBigPqLZqhOUyu4"
+          style="min-width: 290px; width: 100%; min-height: 365px"
+        ></iframe> 
+        
+        <button type="button" class="btn cancel" onclick="closeForm()">
+          Close
+        </button>
+      </form>
+    </div>
+    <script>
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+  
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+      </script>
+      <script>
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', "https://webchat.botframework.com/api/tokens", true);
+        xhr.setRequestHeader('Authorization', 'BotConnector ' + 'Lhap8QYRlSs.VuQ49aRE5B8446zlp6j601VwnncGYBigPqLZqhOUyu4');
+        xhr.send();
+        xhr.onreadystatechange = processRequest;
+    
+        function processRequest(e) {
+          if (xhr.readyState == 4  && xhr.status == 200) {
+            var response = JSON.parse(xhr.responseText);
+            document.getElementById("chat").src="https://webchat.botframework.com/embed/<AgreeLan-bot>?t="+response
+          }
+        }
+    
+      </script>
+    <script>
+      function loadGoogleTranslate() {
+        // new google.translate.TranslateElement("google_element");
+        new google.translate.TranslateElement(
+        { pageLanguage: 'en' },
+        'google_element',
+      );
+      }
+      
+
+      // if('serviceWorker' in navigator) {
+      //       window.addEventListener('load', () => {
+      //           navigator.serviceWorker.register('./serviceworker.js')
+      //               .then((reg) => console.log('Success: ', reg.scope))
+      //               .catch((err) => console.log('Failure: ', err));
+      //       })
+      //   }
+    </script>
+  </body>
+</html>
